@@ -20,21 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('users', 'UserController');
 
 Auth::routes();
-//Route::group([
-//    'prefix' => 'auth',
-//], function () {
-//    Route::post('login', 'AuthController@login');
-//    Route::post('signup', 'AuthController@signup');
-//
-//    Route::group([
-//        'middleware' => 'auth:api'
-//    ], function() {
-//        Route::get('logout', 'AuthController@logout');
-//        Route::get('user', 'AuthController@user');
-//    });
-//});
-Route::post('login', 'Auth\LoginController@login');
-Route::post('register', 'Auth\RegisterController@register');
 
 //protected routes
 Route::group(['middleware' => 'auth:api'], function() {

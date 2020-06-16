@@ -6,10 +6,11 @@ use App\Http\Resources\UserIndexResource;
 use App\Http\Resources\UserShowResource;
 use App\User;
 use Illuminate\Http\Request;
+
 //use Spatie\QueryBuilder\QueryBuilder as QueryBuilder;
 //use \Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\QueryBuilder;
-use Spatie\QueryBuilder\AllowedFilter;
+//use Spatie\QueryBuilder\AllowedFilter;
 
 class UserController extends Controller
 {
@@ -20,7 +21,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserIndexResource::collection(User::all());
+        return UserIndexResource::collection(
+            QueryBuilder::for(User::class)
+            ->allowedFilters('email')
+            ->get());
     }
 
     /**
@@ -31,7 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // This is handled via passport endpoint api/register.
     }
 
     /**
@@ -54,7 +58,27 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validation_rules = [
+            'name' => 'string|max:255',
+            'email' => 'string|max:255|email|unique:users',
+            'password' => 'string|min:8|confirmed'
+        ];
+
+        $fields = ['name', 'email','password'];
+
+        foreach ($fields as $field ){
+            if(isset($request->$field)) {
+                $data         = $this->validate( $request, [ $field => $validation_rules[ $field ] ] );
+                $user->$field = $data[ $field ];
+            }
+        }
+
+
+        $user->save();
+        return response()->json([
+            'code' => 'SUCCESS',
+            'message' => 'User updated successfully'
+        ]);
     }
 
     /**

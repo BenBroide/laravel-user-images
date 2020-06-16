@@ -7,3 +7,10 @@ function store_random_image(){
 
     return $image_name;
 }
+
+function handle_response_images($request, $response, $images ){
+    if($request->include && 'images' == $request->include){
+        $response['images'] = $images;
+    }
+    return $response;
+}

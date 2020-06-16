@@ -14,11 +14,14 @@ class UserIndexResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $response = [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'images' => $this->images
+            'images' =>$this->when($request->include && 'images' == $request->include, $this->images),
         ];
+
+        return $response;
     }
+
 }
