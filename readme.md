@@ -1,5 +1,8 @@
 
 ## Testing 
+
+Rename .env.example to .env and set local mysql credentials. 
+
 Run 
 
 ```php artisan passport:install```
