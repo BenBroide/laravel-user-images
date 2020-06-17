@@ -1,7 +1,10 @@
 
 ## Testing 
-Important:
-Run ```php artisan passport:install```
+Run 
+
+```php artisan passport:install```
+```php artisan key:generate```
+```php artisan serve```
 
 ###### Admin User
 u admin@example.com p 12345678
