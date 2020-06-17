@@ -47,3 +47,8 @@ GET {{url}}api/users/2?include=images
 
 ###### Filter User by email
 GET {{url}}api/users/?filter[email]=test-user@example.com
+
+##### Update User
+PUT {{url}}api/users/1
+with Params name/email/password
+password should be sent with password_confirmation field
