@@ -12,4 +12,3 @@ $factory->define(Image::class, function (Faker $faker) {
         'title' => $faker->sentences(5, true)
     ];
 });
-

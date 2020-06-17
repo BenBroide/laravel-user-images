@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use \App\Http\Controllers\Auth as AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,6 @@ Route::resource('users', 'UserController');
 Auth::routes();
 
 //protected routes
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:api'], function () {
     Route::get('logout', 'Auth\LoginController@logout');
 });

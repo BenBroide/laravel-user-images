@@ -11,7 +11,6 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 
-
 class User extends Authenticatable
 {
     use Notifiable, HasRoles, SoftDeletes, HasApiTokens;
@@ -43,7 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function images(){
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 }

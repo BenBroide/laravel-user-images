@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
