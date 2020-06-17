@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @return string
+ */
 function store_random_image()
 {
     $unsplash_api_url = 'https://source.unsplash.com/random';

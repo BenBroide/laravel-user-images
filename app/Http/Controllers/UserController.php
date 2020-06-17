@@ -14,6 +14,10 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 //use Spatie\QueryBuilder\AllowedFilter;
 
+/**
+ * Class UserController
+ * @package App\Http\Controllers
+ */
 class UserController extends Controller
 {
     /**
