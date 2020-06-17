@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
+
 class RegisterController extends Controller
 {
     /*
@@ -65,10 +68,15 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
+        // Send welcome email.
+        // This is commented out to avoid error when mail SMTP is not set.
+        //Mail::to($user['email'])->send(new WelcomeMail($user));
 
+        // Return Token.
         $this->guard()->login($user);
         $success['token'] = $user->createToken('nfce_client')->accessToken;
         $success['user'] = $user;
+
         return response()->json($success, 201);
     }
 }
