@@ -3,7 +3,9 @@
 Run 
 
 ```php artisan passport:install```
+
 ```php artisan key:generate```
+
 ```php artisan serve```
 
 ###### Admin User
