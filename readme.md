@@ -24,7 +24,7 @@ Authorization: Bearer {{token}}
 GET {{url}}api/users/
 
 ######Users Route with images
-GET {{url}}api/users/?include=images=true
+GET {{url}}api/users/?include=images
 
 ######User Route - Show
 GET {{url}}api/users/2
@@ -38,7 +38,7 @@ DELETE {{url}}api/users/2
 DELETE {{url}}api/users/2
 
 ######User Route with images
-GET {{url}}api/users/2?include=images=true
+GET {{url}}api/users/2?include=images
 
 ######Filter User by email
 GET {{url}}api/users/?filter[email]=test-user@example.com

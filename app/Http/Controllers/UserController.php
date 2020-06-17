@@ -24,6 +24,7 @@ class UserController extends Controller
         return UserIndexResource::collection(
             QueryBuilder::for(User::class)
             ->allowedFilters('email')
+            ->allowedIncludes('images')
             ->get());
     }
 

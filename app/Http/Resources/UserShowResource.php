@@ -12,15 +12,14 @@ class UserShowResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
     public function toArray($request)
     {
-        $response = [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,
-            'images' =>$this->when($request->include && 'images' == $request->include, $this->images),
-        ];
-
-        return $response;
+        return parent::toArray($request);
     }
 }
