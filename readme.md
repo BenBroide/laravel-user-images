@@ -8,6 +8,7 @@ Run
 
 ```php artisan serve```
 
+
 ###### Admin User
 u admin@example.com p 12345678
 
@@ -15,7 +16,11 @@ u admin@example.com p 12345678
 u test-user@example.com p 12345678 
 
 ###### Login Route
-POST {{url}}api/login?email=admin@example.com&password=12345678&remember_me=true
+POST {{url}}api/login?email=admin@example.com&password=12345678
+
+After login, send with the headers of api calls in Postman:
+
+Authorization : Bearer {{token}}
 
 ###### Sign-up Route
 POST {{url}}api/register?name=Ben&email=hi@fun.com&password=12345678&password_confirmation=12345678
